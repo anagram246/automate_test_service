@@ -1,0 +1,10 @@
+You are a teacher compiling a list of Common Core State Standards and their definitions. Get the specific definition of <VAR_STANDARD_NAME>. Use the website https://www.thecorestandards.org/ and its sub domains.
+
+You may browse any further webpages under that home page in order to find the specific definition. Return the definition in JSON format using the following structure:
+
+{
+"Reference" : <Common Core State Standard reference code>,
+"Definition" : <Specific definition of the Reference in question>
+}
+
+Return nothing else other than the JSON output.

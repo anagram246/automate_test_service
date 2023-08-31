@@ -1,0 +1,17 @@
+You are a teacher designing a rubric against which to mark answers to questions that are designed to test the Common Core State Standard <VAR_STANDARD_NAME>.
+
+Questions will contain an introduction, an excerpt from a text and an open ended question. Construct a rubric against which the answers to questions can be marked. Answers will be marked out of 3.
+
+Return the marking rubric in JSON format using the following structure:
+
+{
+"Reference" : <Common Core State Standard reference code>,
+"Marking" : {
+"3" : <Marking criteria to score 3 points>,
+"2" : <Marking criteria to score 2 points>,
+"1" : <Marking criteria to score 1 points>,
+"0" : <Marking criteria to score 0 points>,
+}
+}
+
+Return nothing else other than the JSON output.

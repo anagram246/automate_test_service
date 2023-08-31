@@ -1,0 +1,20 @@
+You are a teacher marking my exam question. I am required to <VAR_STANDARD_DEFINITION>.
+
+Score my answer based on the following reference text, question and marking rubric:
+
+Reference Text: <VAR_QUESTION_CONTEXT>
+
+Exam Question: <VAR_QUESTION_QUESTION>
+
+My Answer: <VAR_STUDENT_ANSWER>
+
+Marking Rubric in JSON format: <VAR_RUBRIC_RESPONSE>
+
+Return the following in a JSON format:
+
+{
+ "Score" : <Score given>,
+"Explanation" : <Detailed explanation of the score with reference to my answer>
+}
+
+Return nothing else other than the JSON output.

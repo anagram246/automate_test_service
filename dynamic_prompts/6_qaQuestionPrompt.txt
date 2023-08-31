@@ -1,0 +1,18 @@
+The following JSON represents an Exam Question and the marking criteria for an answer:
+
+{
+<VAR_EXAM_Q_RESPONSE>,
+<VAR_MARKING_RESPONSE>
+}
+
+Check the following and return in a JSON format using only Yes or No answers
+
+{
+“Structure” : <Does the Exam Question have all the required elements? It is expected to have an Introduction, Context, Question, Example.>,
+“Errors” : <Are all parts of the Exam Question free from any spelling or grammar errors?>,
+“PG” : <Are all parts of the Exam Question free of profanities?>,
+“Logical” : <Can the question be answered from the excerpt given?>
+“Example” : <Does the Example score full marks against the marking criteria?> 
+}
+
+Return nothing else other than the JSON output.

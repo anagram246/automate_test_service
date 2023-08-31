@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+</head>
+<body>
+    <h2>Quiz App</h2>
+    
+    <h3> Select Standard: </h3>
+    <select id="standard">
+        {% for standard in standards %}
+        <option value="{{ standard }}">{{ standard }}</option>
+        {% endfor %}
+    </select>
+    
+    <br><br>
+
+    <h3> Select Topic: </h3>
+    <input type="text" id="topic" placeholder="Enter your topic of interest">
+    <button onclick="generateQuiz()">Generate Question</button>
+    
+    <br>
+
+    <div id="question-container" style="display: none;">
+        <h3> Exam Question: </h3>
+        <p id="quiz-intro"></p>
+        <blockquote id="quiz-context" style="font-style:italic"></blockquote>
+        <p id="quiz-question"></p>
+        <textarea id="answer" placeholder="Enter your answer"></textarea>
+        <button onclick="checkAnswer()">Submit Answer</button>
+    </div>
+
+    <br><br>
+
+    <div id="marking-container" style="display: none;">
+        <h3> Results: </h3>
+        <p id="marking-score"></p>
+        <p id="marking-explanation"></p>
+    </div>
+
+    <div id="low-mark-container" style="display: none;">
+        <button onclick="goodExample()">Click for example of better answer</button>
+    </div>
+
+    <div id="example-container" style="display: none;">
+        <h3> Good example: </h3>
+        <p id="example-answer"></p>
+        <p id="example-explanation"></p>
+    </div>
+
+    <div id="refresh-page-container" style="display: none;">
+        <button onclick="refreshPage()">Refresh page for new question</button>
+    </div>
+
+    <script>
+        function generateQuiz() {
+            const topic = document.getElementById('topic').value;
+            const standard = document.getElementById('standard').value;
+            fetch('/get_question', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `topic=${topic}&standard=${standard}`
+            }).then(response => response.json())
+            .then(data => {
+                document.getElementById('quiz-intro').innerText = data.exam_question['Introduction'];
+                document.getElementById('quiz-context').innerText = data.exam_question['Context'];
+                document.getElementById('quiz-question').innerText = data.exam_question['Question'];
+                document.getElementById('question-container').style.display = 'block';
+                document.getElementById('example-answer').innerText = data.exam_question['Example'];
+                document.getElementById('example-explanation').innerText = data.exam_question['Example Explanation'];
+            });
+        }
+
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value;
+            fetch('/check_answer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `answer=${answer}`
+            }).then(response => response.json())
+            .then(data => {
+                document.getElementById('marking-explanation').innerText = data.marking['Explanation'];
+                document.getElementById('marking-container').style.display = 'block';
+                if (data.marking['Score'] < 3) {
+                    document.getElementById('low-mark-container').style.display = 'block'
+                }
+                else {
+                    document.getElementById('refresh-page-container').style.display = 'block'
+                };
+            });
+        }
+
+        function goodExample() {
+            document.getElementById('example-container').style.display = 'block';
+            document.getElementById('refresh-page-container').style.display = 'block';
+        }
+
+
+        function refreshPage() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

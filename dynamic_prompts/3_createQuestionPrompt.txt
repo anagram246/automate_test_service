@@ -1,0 +1,16 @@
+You are a teacher creating questions for an exam. The students are are being assessed on Common Core State Standard <VAR_STANDARD_NAME>.
+
+Create an Exam Question around the theme of <VAR_STUDENT_TOPIC> that would test a student on this standard.
+
+Return the Exam Question in JSON format using the following structure:
+{
+“Description” : <Definition of the common core state standard>,
+“Exam Question :  {
+	”Introduction” : <Introduce the passage to be used in the Exam Question>,
+	“Context” : <The passage to be used for the question>,
+	“Question” : <An open-ended question based on the Context>,
+	“Example” : <An example of a good answer to the Question based on the Common Core State Standard>
+}
+}
+
+Return nothing else other than the JSON output.

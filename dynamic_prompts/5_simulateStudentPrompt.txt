@@ -1,0 +1,22 @@
+The following is a list of personas:
+
+[
+high performing student,
+poor performing student,
+student who only gives 1 word answers,
+student who swears a lot,
+dyslexic student
+]
+
+Pick a persona at random from the list and answer the following exam question in the style of that persona.
+
+<VAR_EXAM_Q_RESPONSE_NO_EXAMPLE>
+
+Return the persona and the answer to the question in JSON format
+
+{
+ "Persona" : <Persona chosen>,
+"Answer" : <Answer to the Question>
+}
+
+Return nothing else other than the JSON output.
