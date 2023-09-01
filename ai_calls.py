@@ -1,11 +1,9 @@
 import openai
+import os
 
 def call_ai(prompt):
     
-    openai.api_key = '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'
-    
-    print(prompt)
-    print(openai.api_key)
+    openai.api_key = os.environ['EXAM_PROTOTYPE_OPENAI_API_KEY']
 
     response = openai.ChatCompletion.create(
         model="gpt-4",
@@ -21,7 +19,5 @@ def call_ai(prompt):
         frequency_penalty=0,
         presence_penalty=0
         )
-
-    print(response['choices'][0]['message']['content'])
 
     return str(response['choices'][0]['message']['content'])

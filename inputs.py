@@ -1,8 +1,5 @@
 import json
 
-# Enter your API key here
-OPEN_AI_API_KEY = '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'
-
 # List of Common Standards for website drop down
 STANDARDS = ['CCSS.ELA-LITERACY.W.4.9']
 
