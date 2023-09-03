@@ -16,10 +16,10 @@ Run the following command in your Terminal to ensure you have all the required p
 
 
 ## App
-Run `python app.py` in your Terminal
+Run `python app.py` in your Terminal to launch the app
 
-Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser
+Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser to view the front end and interact like a student/user
 
 
 ## Testing
-Run `python test_simulation.py` in your Terminal to execute an AI-based test of your app
+Run `python test_simulation.py` in your Terminal to execute an AI-based test of the app. The output will printed in your terminal.

@@ -23,4 +23,8 @@ def mark_answer_prompt(filepath, definition, context, question, answer, rubric):
                    .replace("<VAR_RUBRIC_RESPONSE>", rubric)
     return text_out
 
-
+# Function to dynamically create the prompt for simulating a student and answering the given question
+def simulate_answer_prompt(filepath, exam_question):
+    text = read_txt(filepath)
+    text_out = text.replace("<VAR_EXAM_Q_RESPONSE_NO_EXAMPLE>", str(exam_question))
+    return text_out

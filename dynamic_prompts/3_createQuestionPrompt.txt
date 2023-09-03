@@ -5,7 +5,7 @@ Create an Exam Question around the theme of <VAR_STUDENT_TOPIC> that would test 
 Return the Exam Question in JSON format using the following structure:
 {
 “Description” : <Definition of the common core state standard>,
-“Exam Question :  {
+“Exam Question" :  {
 	”Introduction” : <Introduce the passage to be used in the Exam Question>,
 	“Context” : <The passage to be used for the question>,
 	“Question” : <An open-ended question based on the Context>,
