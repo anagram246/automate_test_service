@@ -9,6 +9,7 @@
 <body>
     <h2>Quiz App</h2>
     
+    <!-- Drop down list of standards -->
     <h3> Select Standard: </h3>
     <select id="standard">
         {% for standard in standards %}
@@ -18,12 +19,14 @@
     
     <br><br>
 
+    <!-- Free text box for topic of interest -->
     <h3> Select Topic: </h3>
     <input type="text" id="topic" placeholder="Enter your topic of interest">
     <button onclick="generateQuiz()">Generate Question</button>
     
     <br>
 
+    <!-- Question with free text box for answer -->
     <div id="question-container" style="display: none;">
         <h3> Exam Question: </h3>
         <p id="quiz-intro"></p>
@@ -35,26 +38,31 @@
 
     <br><br>
 
+    <!-- Marking feedback -->
     <div id="marking-container" style="display: none;">
         <h3> Results: </h3>
         <p id="marking-score"></p>
         <p id="marking-explanation"></p>
     </div>
 
+    <!-- Button to request a model answer -->
     <div id="low-mark-container" style="display: none;">
         <button onclick="goodExample()">Click for example of better answer</button>
     </div>
 
+    <!-- Strong answer example with feedback -->
     <div id="example-container" style="display: none;">
         <h3> Good example: </h3>
         <p id="example-answer"></p>
         <p id="example-explanation"></p>
     </div>
 
+    <!--Button to refresh page  -->
     <div id="refresh-page-container" style="display: none;">
         <button onclick="refreshPage()">Refresh page for new question</button>
     </div>
 
+    <!-- Fuctions to pass (1) topic and standard, (2) answer to back end -->
     <script>
         function generateQuiz() {
             const topic = document.getElementById('topic').value;

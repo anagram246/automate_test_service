@@ -3,11 +3,15 @@ import json
 # List of Common Standards for website drop down
 STANDARDS = ['CCSS.ELA-LITERACY.W.4.9']
 
+# This definition would be stored in a database of all standard and their definitions
+# The prompt in '1_standardDefinitionPrompt.txt' could be used to check it is up to date
 STANDARD_DEFINITION_JSON = {
     "Reference" : "CCSS.ELA-Literacy.W.4.9",
     "Definition" : "Draw evidence from literary or informational texts to support analysis, reflection, and research."
 }
 
+# For consistency the marking rubric should also be stored in a database. It could be human or AI created.
+# The prompt in '2_markingRubricPrompt.txt' is an example of how this one was created using AI
 MARKING_RUBRIC_JSON = {
     "Reference" : "CCSS.ELA-LITERACY.W.4.9",
     "Marking" : {
